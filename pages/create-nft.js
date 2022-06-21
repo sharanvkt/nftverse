@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useTheme } from "next-themes";
 
 import { NFTContext } from "../context/NFTContext";
-import { Button, Input } from "../components";
+import { Button, Input, Loader } from "../components";
 import images from "../assets";
 
 const createNFT = () => {
@@ -16,8 +16,8 @@ const createNFT = () => {
     description: "",
   });
   const { theme } = () => useTheme();
-  const { uploadToIPFS,createNFT } = useContext(NFTContext);
-  const router=useRouter();
+  const {isLoadingNFT, uploadToIPFS, createNFT } = useContext(NFTContext);
+  const router = useRouter();
 
   const onDrop = useCallback(async (acceptedFile) => {
     const url = await uploadToIPFS(acceptedFile[0]);
@@ -48,7 +48,15 @@ const createNFT = () => {
     [isDragActive, isDrapAccept, isDragReject]
   );
 
-  console.log(formInput);
+  if (isLoadingNFT) {
+    return (
+      <div className="flexStart min-h-screen">
+        <Loader />
+      </div>
+    );
+  }
+
+
 
   return (
     <div className="flex justify-center sm:px-4 p-12">
@@ -75,7 +83,7 @@ const createNFT = () => {
                     height={100}
                     objectFit="contain"
                     alt="file upload"
-                    className={theme === "light" && "filter invert"}
+                    className={theme === "light" ? "filter invert" : ""}
                   />
                 </div>
                 <p className="font-poppins dark:text-white text-nft-black-1 font-semibold  text-sm">
@@ -124,7 +132,7 @@ const createNFT = () => {
           <Button
             btnName="Create NFT"
             classStyles="rounded-xl"
-            handleClick={() => createNFT(formInput,fileUrl,router)}
+            handleClick={() => createNFT(formInput, fileUrl, router)}
           />
         </div>
       </div>
