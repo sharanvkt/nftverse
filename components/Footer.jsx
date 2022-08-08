@@ -47,8 +47,8 @@ const Footer = () => {
         </div>
 
         <div className="flex-1 flexBetween start flex-wrap ml-10 md:ml-0 md:mt-8">
-        <FooterLinks heading="NFTverse" items={["Explore","How it Works", "Contact Us"]}/>
-        <FooterLinks heading="Support" items={["Help Center","Terms of Service", "Legal", "Privacy Policy"]}/>
+        <FooterLinks heading="NFTVerse" items={["Explore","How It Works", "Learn More"]}/>
+        <FooterLinks heading="Support" items={["Contact","How it Works", "Discord"]}/>
         </div>
       </div>
 

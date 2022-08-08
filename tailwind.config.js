@@ -19,7 +19,7 @@ module.exports = {
         'nft-red-violet': '#DA18A3',
         'file-active': '#2196f3',
         'file-accept': '#00e676',
-        'file-reject': '#ff1744',
+        'file-reject': '#ff1744',        
         'overlay-black': 'rgba(0, 0, 0, 0.8)',
       },
       width: {

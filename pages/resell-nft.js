@@ -18,7 +18,7 @@ const ResellNFT = () => {
 
     setPrice(data.price);
     setImage(data.image);
-    setIsLoading(false);
+    //setIsLoadingNFT(false);
   };
 
   useEffect(() => {
